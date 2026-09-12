@@ -1,0 +1,5 @@
+# build output; obj/empty keeps the directory
+obj/*
+!obj/empty
+*.a
+__pycache__/
