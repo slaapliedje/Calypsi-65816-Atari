@@ -29,9 +29,10 @@ a small copier moves up during the load; see *Far code* below.
   with its bridge, `main` from 46567a14 or later (the 65C816 native-mode
   fixes from pull requests #88 and #90 are in by then).  `ALTIRRASDL`
   names the binary if it is not on `PATH`.  The file test writes through
-  the emulator's H: host device, which on Linux needs one more fix that
-  is not upstream yet: `test/altirra-sdl-hostfs-posix-paths.patch`
-  (the emulator joins host paths with a backslash).
+  the emulator's H: host device, which on Linux needs one more fix,
+  sent as [#91](https://github.com/ilmenit/AltirraSDL/pull/91) and
+  carried here as `test/altirra-sdl-hostfs-posix-paths.patch` until it
+  lands (the emulator joins host paths with a backslash).
 
 No DOS disk, OS ROM or other firmware is needed for the tests: the
 emulator boots its own OS and runs the `.xex` through its own loader.
