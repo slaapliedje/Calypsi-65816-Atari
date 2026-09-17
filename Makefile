@@ -17,7 +17,11 @@ CC   = $(CALYPSI)cc65816
 LN   = $(CALYPSI)ln65816
 NLIB = $(CALYPSI)nlib
 
-CFLAGS = --core=65816 --data-model=small --always-inline -Iinclude
+# --target Atari is required from Calypsi 5.18.2 on: the C libraries in the
+# distribution (clib-*-atari.a) are built with it and carry the runtime
+# model attribute target="atari", so objects built without it are refused
+# at link time with `runtime model attribute "target" mismatch`.
+CFLAGS = --core=65816 --data-model=small --always-inline -Iinclude --target Atari
 
 ASM_SOURCES = atari-startup.s cpu.s farload.s cio.s stub_exit.s
 C_SOURCES   = fdtab.c stub_open.c stub_close.c stub_read.c stub_write.c \
